@@ -2,12 +2,18 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 // transforma uma classe em entidade do banco de dados
 @Entity
 @Table(name = "tb.cadastro")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class NinjaModel {
 
     //atributo abaixo vai ser o ID
@@ -26,36 +32,4 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") // chave estrangeira (foreign key)
     private MissoesModel missoes;
 
-    public NinjaModel() {
     }
-
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-}
